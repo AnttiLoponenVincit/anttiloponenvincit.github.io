@@ -1,0 +1,1 @@
+var generatorApp = angular.module("generator", []);
