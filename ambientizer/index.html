@@ -20,7 +20,7 @@
                 <input type="radio" value="minor" ng-model="scaleKey" name="scaleKey"/> :(
                 <input type="radio" value="indian" ng-model="scaleKey" name="scaleKey"/> *:|
             </div>
-            <label for="speed">Speed (1-10)</label>
+            <label for="speed">Note length (1-10)</label>
             <input type="text" ng-model="speed" value="100" id="speed"/>
             <label for="input">Type some words to generate ambient music</label>
 
@@ -28,6 +28,12 @@
             <input type="submit" class="{{play ? 'playing' : ''}}" id="submit-button" value="Ambientize"/>
             <input type="button" id="mute-button" value="Stop" ng-click="mute()"/>
         </form>
+        <h3>Known issues:</h3>
+        <ul id="known-issues">
+            <li>Crashes when you type only one word</li>
+            <li>Crashes on iOS Safari (probably other mobile browsers as well?)</li>
+            <li>Works at least on quite new Chrome and Firefox, may crash old versions or other browsers.</li>
+        </ul>
     </div>
 Powered by <a href="http://mohayonao.github.io/timbre.js/">timbre.js</a>
 </body>
