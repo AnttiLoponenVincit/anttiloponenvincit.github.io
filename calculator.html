@@ -1,0 +1,51 @@
+<html>
+<head>
+	<style>
+	input {
+		width: 30px;
+	}
+	</style>
+</head>
+<body>
+<form>
+	<h1>Aikakoodilaskuri</h1>
+	<span>Aika formaatissa HH:MM:SS:ms</span><br/>
+<label for="begin">Alkuaika</label>
+<input type="text" id="beginHH" name="beginHH" value="00">:
+<input type="text" id="beginMM" name="beginMM" value="00">:
+<input type="text" id="beginSS" name="beginSS" value="00">:
+<input type="text" id="beginMs" name="beginMs" value="00"><br/>
+<label for="begin">Loppuaika</label>
+<input type="text" id="endHH" name="endHH" value="00">:
+<input type="text" id="endMM" name="endMM" value="00">:
+<input type="text" id="endSS" name="endSS" value="00">:
+<input type="text" id="endMs" name="endMs" value="00"><br/>
+<input type="button" style="width: 50px;" value="Laske" onclick="calculate()"/>
+<label for="begin">Erotus</label>
+<input type="text" name="result" id="result" style="width: 60px;">ms<br/>
+</form>
+<script type="text/javascript">
+var calculate = function () {
+
+	var beginTimeHH = document.getElementById("beginHH").value;
+	var beginTimeMM = document.getElementById("beginMM").value;
+	var beginTimeSS = document.getElementById("beginSS").value;
+	var beginTimeMs = document.getElementById("beginMs").value;
+	var beginTime = new Date(1970, 1, 1, beginTimeHH, beginTimeMM, beginTimeSS, beginTimeMs);
+
+	var endTimeHH = document.getElementById("endHH").value;
+	var endTimeMM = document.getElementById("endMM").value;
+	var endTimeSS = document.getElementById("endSS").value;
+	var endTimeMs = document.getElementById("endMs").value;
+	var endTime = new Date(1970, 1, 1, endTimeHH, endTimeMM, endTimeSS, endTimeMs);
+
+	document.getElementById("result").value = endTime - beginTime;
+
+
+};
+
+
+
+</script>
+</body>
+</html>
