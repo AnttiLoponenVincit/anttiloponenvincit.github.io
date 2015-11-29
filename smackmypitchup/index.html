@@ -1,0 +1,140 @@
+<html>
+<head>
+<title>SMACK MY PITCH UP</title>
+<script type="text/javascript" src="http://www.html5rocks.com/en/tutorials/webaudio/intro/js/buffer-loader.js"></script>
+<script type="text/javascript" src="../jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="../jquery-ui.min.js"></script>
+<script type="text/javascript" src="../pitchdetect-fork.js"></script>
+<script type="text/javascript" src="../timbre.js"></script>
+<script type="text/javascript" src="smackmypitchup.js"></script>
+<link rel="stylesheet" type="text/css" href="../jquery-ui.min.css"/>
+<style type="text/css">
+body {
+	background-color: #000;
+	font-family: "courier new";
+	color: #ccc;
+}
+img {
+	opacity: 0.2;
+	width: 100%;
+}
+#red-button {
+    background-image: url('red-button.png');
+    position: absolute;
+    width: 144px;
+    height: 160px;
+    display: block;
+    left: 881px;
+    top: 91px;
+}
+#button-text {
+	position: absolute;
+    left: 893px;
+    top: 219px;
+	text-align: center;
+	font-family: "Comic Sans MS";
+	color: #f00;
+  animation: blink 1s steps(5, start) infinite;
+  -webkit-animation: blink 1s steps(5, start) infinite;
+}
+.button {
+	opacity: 0;
+}
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+#waveform {
+	position: absolute;
+    top: 86px;
+    left: 60px;
+}
+#pitch {
+    position: absolute;
+    top: 197px;
+    left: 647px;
+    font-size: 45px;
+    font-family: "Courier new";
+    color: #777;
+}
+#cutoff {
+    height: 160px;
+}
+#resonance {
+    height: 160px;
+}
+#filter-container {
+    position: absolute;
+    top: 330px;
+    left: 60px;
+    height: 239px;
+    width: 119px;
+}
+#filter-container h2 {
+	margin: 5px;
+	font-size: 15px;
+}
+#cutoff-container {
+	position: absolute;
+	left: 10px;
+}
+#resonance-container {
+	position: absolute;
+	left: 60px;
+}
+#autowah-container {
+	position: absolute;
+	top: 213px;
+}
+#waveform-container {
+    position: absolute;
+    top: 330px;
+    left: 180px;
+    height: 239px;
+    width: 119px;
+}
+#waveform-container h2 {
+	margin: 5px;
+	font-size: 15px;
+}
+</style>
+</head>
+<body>
+<img src="synth.png"/>
+<span class="button" id="button-text">DO NOT PRESS</span>
+<a class="button" href="#" id="red-button"></a>
+<span id="pitch"></span>
+<canvas id="waveform" width="460" height="240"></canvas>
+<div id="filter-container">
+	<h2>Filter</h2>
+	<div id="cutoff-container">
+		<span id="cutoff-title">Freq</span>
+		<div id="cutoff"></div>
+	</div>
+	<div id="resonance-container">
+		<span id="cutoff-title">Res</span>
+		<div id="resonance"></div>
+	</div>
+	
+	<label id="autowah-container" for="autowah"><input type="checkbox" id="autowah" checked="true"/> Dynamic </label>
+</div>
+		<div id="waveform-container">
+		<h2>VCO</h2>
+		<span id="waveform-title">Waveform</span><br/>
+		<input type="radio" name="waveform-select" class="waveform-select" value="saw" id="wave-saw" checked="checked"/><label for="wave-saw">Saw</label><br/>
+		<input type="radio" name="waveform-select" class="waveform-select" value="pulse" id="wave-pulse"/><label for="wave-pulse">Pulse</label><br/>
+		<input type="radio" name="waveform-select" class="waveform-select" value="tri" id="wave-tri"/><label for="wave-tri">Tri</label><br/>
+				<input type="radio" name="waveform-select" class="waveform-select" value="sin" id="wave-sin"/><label for="wave-sin">Sin</label><br/>
+	
+
+</div>
+
+</body>
+</html>
